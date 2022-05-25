@@ -1,15 +1,22 @@
 import Foundation
 import SwiftBSON
 
-struct UpStreamEvent : Codable {
-    let author          : String
-    let version         : Int
-    let createdAt       : Date
+public struct UpStreamEvent : Codable {
+    public let author          : String
+    public let version         : Int
+    public let createdAt       : Date
 
-    let content         : Data
+    public let content         : Data
+    
+    public init(author: String, version: Int, createdAt: Date, content: Data) {
+        self.author = author
+        self.version = version
+        self.createdAt = createdAt
+        self.content = content
+    }
 }
 
-struct DownStreamEvent : Codable {
+public struct DownStreamEvent : Codable {
     var _id             : BSONObjectID?
     let author          : String
     let version         : Int

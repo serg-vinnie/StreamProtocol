@@ -7,15 +7,26 @@
 
 import Foundation
 
-struct Up {
-    struct Request : StreamRequest {
-        let user: String
-        let token: String
-        let streamID : String
-        let events : [UpStreamEvent]
+public struct Up {
+    public struct Request : StreamRequest {
+        public let user: String
+        public let token: String
+        public let streamID : String
+        public let events : [UpStreamEvent]
+        
+        public init(user: String, token: String, streamID : String, events : [UpStreamEvent]) {
+            self.user = user
+            self.token = token
+            self.streamID = streamID
+            self.events = events
+        }
     }
     
-    struct Response : Codable {
-        let inserted : Int
+    public struct Response : Codable {
+        public let inserted : Int
+        
+        public init(inserted : Int) {
+            self.inserted = inserted
+        }
     }
 }

@@ -7,16 +7,26 @@
 
 import Foundation
 
-extension Up {
+public extension Up {
     struct Tail {
-        struct Request : StreamRequest {
-            let user: String
-            let token: String
-            let streamID : String
+        public struct Request : StreamRequest {
+            public let user: String
+            public let token: String
+            public let streamID : String
+            
+            public init(user: String, token: String, streamID: String) {
+                self.user = user
+                self.token = token
+                self.streamID = streamID
+            }
         }
         
-        struct Response : Codable {
-            let tail : Date?
+        public struct Response : Codable {
+            public let tail : Date?
+            
+            public init(tail: Date?) {
+                self.tail = tail
+            }
         }
     }
 }

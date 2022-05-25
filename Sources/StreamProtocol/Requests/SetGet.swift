@@ -7,23 +7,44 @@
 
 import Foundation
 
-struct SetReqeust : BasicRequest {
-    let token: String
-    let user: String
-    let storageData : StorageData
+public struct SetReqeust : BasicRequest {
+    public let token: String
+    public let user: String
+    public let storageData : StorageData
+    
+    public init(token: String, user: String, storageData: StorageData) {
+        self.token = token
+        self.user = user
+        self.storageData = storageData
+    }
 }
 
-struct GetRequest : BasicRequest {
-    let token   : String
-    let user    : String
-    let key     : String
+public struct GetRequest : BasicRequest {
+    public let token   : String
+    public let user    : String
+    public let key     : String
+    
+    public init(token: String, user: String, key: String) {
+        self.token = token
+        self.user = user
+        self.key = key
+    }
 }
 
 struct GetResponse : Codable {
     let storageData : StorageData?
+    
+    public init(storageData : StorageData?) {
+        self.storageData = storageData
+    }
 }
 
-struct StorageData : Codable {
-    let key          : String
-    let content      : Data
+public struct StorageData : Codable {
+    public let key          : String
+    public let content      : Data
+    
+    public init(key: String, content: Data) {
+        self.key = key
+        self.content = content
+    }
 }
